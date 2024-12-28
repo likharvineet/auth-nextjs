@@ -3,7 +3,7 @@ import { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
-    const isPublicPath = path === "/login" || path === "/signup";
+    const isPublicPath = path === "/login" || path === "/signup" || path === "/verifyemail";
     const token = request.cookies.get("token")?.value || "";
 
     // if the path is public and has token, we want to redirect it to '/'
@@ -24,5 +24,6 @@ export const config = {
         // TODO: /profile/:id
         "/login",
         "/signup",
+        "/verifyemail",
     ],
 };
